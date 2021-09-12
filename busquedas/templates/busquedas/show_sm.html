@@ -1,0 +1,25 @@
+<!--Decimos a home que herede-->
+{% extends "appPrincipal/base.html" %}
+<!--Cargue todo lo que podamos tener en carpeta static, imagen del contenido-->
+{% load static %}
+<!--Abrimos bloque de contenido y cerramos cuando terminan contenidos propios de la pagina-->
+{% block content %}
+<!--Van todos los servicios-->
+<!--Recorremos servicios con buble for each-->
+    {% for rs in residuo.waste_container.all %}
+        <section class="page-section clearfix">
+            <div class="container">
+                <div class="intro">
+                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{rs.imagen.url}}" alt="" style="width: 50%;">
+                    <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                        <h2 class="section-heading mb-4" >
+                            <span class="section-heading-lower">{{residuo.name}}</span>
+                            <span class="section-heading-upper">{{rs.name}}</span>
+                        </h2>              
+                    </div>
+                </div>
+            </div>
+        </section>   
+    {% endfor %}
+<!--Separacion-->
+{% endblock %}
