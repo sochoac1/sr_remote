@@ -1,0 +1,19 @@
+<!--Decimos que herede-->
+{% extends "appPrincipal/base.html" %}
+<!--Cargamos bootstrap-->
+{% load static %} 
+{% block content %}
+
+    {% if searched %}
+        <h1>Te referiste a {{searched}}</h1> 
+        <br/>
+    {% for residuo in residuos %}
+        <a href="{% url 'show_rm' residuo.id %}">
+        <p style="color:white">{{ residuo }}</p>
+        </a><br/>
+    {% endfor %}
+    {% else %}
+        <h1 style="color:white">Oye, se te olvido ingresar un residuo solido...</h1>
+    {% endif %}
+
+{% endblock%}

@@ -1,0 +1,17 @@
+<!--Decimos que herede-->
+{% extends "appPrincipal/base.html" %}
+<!--Cargamos bootstrap-->
+{% load static %} 
+{% block content %}
+    <div style="margin: auto;">
+        <form class ="d-flex" method=POST action="{% url 'smart_search' %}">
+            {% csrf_token %} 
+            <div style="margin: auto;">
+            <input class="form-control me-2" type="search" placeholder="Ingresa residuo solido" aria-label="Search" name="searched">
+            
+            <button type="submit">buscar</button> 
+            </div> 
+        </form>
+    </div>
+    <p style="color: white">Tu buscaste por...</p>
+{% endblock%}
