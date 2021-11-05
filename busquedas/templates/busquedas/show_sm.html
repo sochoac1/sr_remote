@@ -1,0 +1,46 @@
+<!--Decimos a home que herede-->
+{% extends "appPrincipal/base.html" %}
+<!--Cargue todo lo que podamos tener en carpeta static, imagen del contenido-->
+{% load static %}
+<!--Abrimos bloque de contenido y cerramos cuando terminan contenidos propios de la pagina-->
+{% block content %}
+<!--Van todos los servicios-->
+<!--Recorremos servicios con buble for each-->
+{% if residuo.impact == 'bueno' %}
+                <div id="Bueno">
+                    <p>Felicitaciones!! Sigue asi que estas haciendo un gran labor</p>
+                </div>
+            {% else %}
+                <div id="Malo">
+                    <p>Cuidado!! Recuerda reducir el consumo de este material</p>
+                </div>
+            {% endif %}
+            
+    {% for rs in residuo.waste_container.all %}
+            <div class="contenedor">
+                
+                <figure>
+                    <img src="{{rs.image.url}}" width="50%" height="50%" alt="">
+                    <div class="capa">
+                        <h3>{{residuo.name}}</h3>         
+                        <p>{{rs.name}}</p>     
+                    </div>
+                </figure>
+            </div>  
+            
+            <script>
+                function bueno(){
+                    document.getElementById('Bueno').style.display='none';
+                }
+
+                function malo(){
+                    document.getElementById('Malo').style.display='none';
+                }
+
+                setTimeout(malo,3000);
+
+                setTimeout(bueno,3000);
+            </script>
+    {% endfor %}
+<!--Separacion-->
+{% endblock %}

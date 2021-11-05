@@ -1,0 +1,70 @@
+<!--Decimos que herede-->
+{% extends "appPrincipal/base.html" %}
+<!--Cargamos bootstrap-->
+{% load static %} 
+{% block content %}
+<div id="con_principal">
+    <div id="smart" style="text-align: center; margin:2%;">
+        <img src="{% static 'appPrincipal/img/bono-basura.jpg' %}" width="50%" height="50%" class="imagen">
+        <button class="btn btn-secondary" onclick="mostrarBus();">Separación residuos</button>
+    </div>
+ 
+    <div id="recycle" style="text-align: center; margin:2%;">
+        <img src="{% static 'appPrincipal/img/Reci.png' %}" width="50%" height="50%" class="imagen">
+        <button class="btn btn-secondary" onclick="mostrarBus2();">¿Que otro uso?</button>
+    </div>
+    
+    <div id="clean" style="text-align: center; margin:2%;">
+        <img src="{% static 'appPrincipal/img/Limpiar-caneca.jpg' %}" width="50%" height="50%" class="imagen">
+        <a class="btn btn-secondary" href="clean_container">Limpiar contenedores</a>
+    </div>
+</div>
+
+<div id="info-busquedas">
+    <form class ="d-flex" method=POST action="{% url 'smart_search' %}">
+        {% csrf_token %} 
+        <div class ="f-cont" style="margin: auto;">
+            <p style="color: white; font-size: 20;">Smart Search</p>
+            <input class="form" type="search" placeholder="Ingresa residuo solido" aria-label="Search" name="searched">
+            
+            <button type="submit" class="botones">buscar</button> 
+        </div> 
+    </form>
+</div>
+
+<div id="info-busquedas2">
+    <form class ="d-flex" method=POST action="{% url 'recycle_search' %}">
+        {% csrf_token %} 
+        <div class="f-cont" style="margin: auto;">
+            <p style="color: white; font-size: 20;">Recycle Search</p>
+            <input class="form" type="search" placeholder="Ingresa residuo solido a reciclar" aria-label="Search" name="searched">
+            <br>
+            <button type="submit" class="botones">buscar</button> 
+        </div> 
+    </form>
+</div>
+
+<script>
+       var mostar2 = false;
+       var mostar3 = false;
+        function mostrarBus(){
+            if(mostar2 == false && mostar3 == false){
+                document.getElementById('info-busquedas').style.display='block';
+                mostar2 = true;
+            }else{
+                document.getElementById('info-busquedas').style.display='none';
+                mostar2 =  false;
+            }
+        }
+
+        function mostrarBus2(){
+            if(mostar3 == false && mostar2 == false){
+                document.getElementById('info-busquedas2').style.display='block';
+                mostar3 = true;
+            }else{
+                document.getElementById('info-busquedas2').style.display='none';
+                mostar3 =  false;
+            }
+        }
+</script>
+{% endblock%}

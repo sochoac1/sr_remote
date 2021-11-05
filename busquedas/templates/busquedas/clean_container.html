@@ -1,0 +1,22 @@
+<!--Decimos a home que herede-->
+{% extends "appPrincipal/base.html" %}
+<!--Cargue todo lo que podamos tener en carpeta static, imagen del contenido-->
+{% load static %}
+<!--Abrimos bloque de contenido y cerramos cuando terminan contenidos propios de la pagina-->
+{% block content %}
+<!--Van todos los servicios-->
+<!--Recorremos servicios con buble for each-->
+    <div id="titulo"><h2 style="color: white; text-align: center;">De esta manera depositas el contenido de cada basura</h2></div>
+    {% for con in containers %}
+    <div class="contenedor">
+        <figure>
+            <img src="{{con.image.url}}" alt="" width="100%" height="50%">
+            <div class="capa">
+                <h3>{{con.name}}</h3>   
+                <p>{{con.deposit_content}}</p>           
+            </div>
+        </figure>
+    </div>  
+    {% endfor %}
+<!--Separacion-->
+{% endblock %}

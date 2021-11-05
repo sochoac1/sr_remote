@@ -1,0 +1,19 @@
+<!--Decimos a home que herede-->
+{% extends "appPrincipal/base.html" %}
+<!--Cargue todo lo que podamos tener en carpeta static, imagen del contenido-->
+{% load static %}
+<!--Abrimos bloque de contenido y cerramos cuando terminan contenidos propios de la pagina-->
+{% block content %}
+<!--Van todos los servicios-->
+<!--Recorremos servicios con buble for each-->            
+            <div class="contenedor">
+                <figure>
+                    <img src="{{residuo.image.url}}" alt="" width="100%" height="50%">
+                    <div class="capa">
+                        <h3>¿Como se puede reciclar?</h3> 
+                        <p>{{residuo.recycle_type}}</p>             
+                    </div>
+                </figure>
+            </div>
+<!--Separacion-->
+{% endblock %}
