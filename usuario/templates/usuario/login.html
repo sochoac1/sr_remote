@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'appPrincipal/css/main.css' %}">
+</head>
+
+<body>
+    <div class="Contenedor-Principal">
+        <img class="avatar" src="{% static 'appPrincipal/img/logoOriginal.png' %}" alt="Logo de Fazt">
+        <h1>Inicio de sesión</h1>
+        <form method="post" autocomplete="new-password">
+            {% csrf_token %}
+            {% if form.errors %}                
+                <p style = "color:green;">Usuario o contraseña invalidos.Intente nuevamente.</p>
+            {% endif %} 
+            <label for="username">Username</label>            
+            <input type="text" placeholder="Enter Username" name="username">
+            {% if form.errors %}                
+                {{ form.username.errors }}
+            {% endif %}            
+            <label for="password">Password</label>
+            <input type="password" placeholder="Enter Password" name="password">
+            {% if form.errors %}                
+                {{ form.password.errors }}
+            {% endif %}   
+            
+            
+                      
+            <input type="submit" value="Inicio de sesion">
+
+            
+            <a href="{% url 'registro' %}">No tienes una cuenta?</a>
+        </form>
+    </div>
+</body>
+</html>

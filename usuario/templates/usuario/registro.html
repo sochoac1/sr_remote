@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{% static 'appPrincipal/css/main.css' %}">
+</head>
+
+<body>
+    <div class="Contenedor-Principal">
+        <img class="avatar" src="{% static 'appPrincipal/img/logoOriginal.png' %}" alt="Logo de Fazt">
+        <h1>Crear nuevo usuario</h1>
+        <form method="post">
+            {% csrf_token %}
+            
+            <label for="username">Username</label>            
+            <input type="text" placeholder="Enter Username" name="username">
+            {% if form.errors %}                
+                {{ form.username.errors }}
+            {% endif %}
+            <label for="username">email</label>
+            <input type="text" placeholder="Enter email" name="email">
+            {% if form.errors %}                
+                {{ form.email.errors }}
+            {% endif %}
+            <label for="password">Password</label>
+            <input type="password" placeholder="Enter Password" name="password1">
+            {% if form.errors %}                
+                {{ form.password1.errors }}
+            {% endif %}
+            <label for="password">Confirma tu Password</label>
+            <input type="password" placeholder="Confirm Password" name="password2">
+            {% if form.errors %}                
+                {{ form.password2.errors }}
+            {% endif %}
+            <input type="submit" value="registrar">
+            
+            <a href="{% url 'login' %}">Iniciar sesión</a>
+        </form>
+    </div>
+</body>
+</html>
