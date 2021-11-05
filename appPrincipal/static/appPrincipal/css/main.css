@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url(../img/fondo.png) no-repeat center top;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.Contenedor-Principal {
+    width: 320px;
+    height: auto;    
+    background: black;
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 15px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% -50px);
+}
+
+
+.Contenedor-Principal h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.Contenedor-Principal label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.Contenedor-Principal input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.Contenedor-Principal input[type="text"], .Contenedor-Principal input[type="password"] {
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+
+}
+
+.Contenedor-Principal input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #1db80f;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.Contenedor-Principal a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.Contenedor-Principal a:hover {
+    color: white;
+}

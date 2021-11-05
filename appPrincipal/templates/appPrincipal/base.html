@@ -1,0 +1,127 @@
+<html>
+
+<head>
+    <!--Decimos que cargue contenidos-->
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href="{% static 'appPrincipal/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+     <!-- Fonts -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     
+
+    <!-- Styles -->
+    <link href="{% static 'appPrincipal/css/gestion1.css' %}" rel="stylesheet">
+    <link href="{% static 'appPrincipal/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+      
+        <span class="site-heading-lower">Smart Recycle</span>
+      </h1>
+
+
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'Home' %}">Smart Recycle</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
+          </li>
+          <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Busquedas' %}">Busquedas</a>
+          </li>
+          <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'StarterPack' %}">StarterPack</a>
+          </li>
+          <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Recordatorios' %}">Recordatorio</a>
+          </li>
+          <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Contacto' %}">Sugerencias</a>
+          </li>         
+         
+        </ul>
+        <div class="usa">
+          <h4>@{{ user.username }}</h4>
+        </div>             
+        <div class="action">
+         
+          <div class="profile" onclick="menuToggle();">
+              <img src="{% static 'appPrincipal/img/no_profile.jpg' %}">
+          </div>
+          <div class="menu">
+              <h3>Smart Recycle<br><span>{{ user.username | upper }}</span></h3>
+              <ul>
+                  <li><img src="{% static 'appPrincipal/img/nuevo_oerfil.png' %}" ><a href="{% url 'registro' %}">Crear perfil</a> </li>
+                  <li><img src="{% static 'appPrincipal/img/logout.png' %}" ><a href="{% url 'logout' %}">Logout</a> </li>
+              </ul>
+          </div>
+      </div>
+      <script>
+          function menuToggle(){
+              const toggleMenu = document.querySelector('.menu');
+              toggleMenu.classList.toggle('active')
+          }
+      </script>  
+      </div>
+    </div>
+  </nav>
+
+  <!--Esto se va heredar-->
+  {% block content %}
+
+  {% endblock %}
+
+
+
+    <!-- Footer -->
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0">
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	    </p>
+        <p class="m-0 mbt">
+        	<a href="sample.html" class="link">Política de privacidad</a> ·
+        	<a href="sample.html" class="link">Aviso legal</a> ·
+        	<a href="sample.html" class="link">Cookies</a>
+		</p>
+        <p class="m-0 mbt1">&copy; Gestión de Pedidos 2020</p>
+      </div>
+	</footer>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'appPrincipal/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'appPrincipal/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+
+</html>
