@@ -1,0 +1,63 @@
+<!--Decimos que herede-->
+{% extends "appPrincipal/base.html" %}
+<!--Cargamos bootstrap-->
+{% load static %} 
+{% block content %}
+<div id="principal">
+<div class='contenedor-principal'>
+    <h3>¿Que implementos debes tener para <br> comenzar con tu separacion de basuras?</h3>
+    <button class='boton' onclick="mostrar();">INFO</button>
+    <div id="img">
+        <br>
+        <div class="texto"><p>Debes tener las siguientes canecas:</p></div>
+        <div class="foto3"><img src="{% static 'appPrincipal/img/colores.jpeg' %}" width="100%" height="50%"></div>
+        <div>
+            <p style="font-size: 18;">Ten en cuenta que puedes usar otro tipo de canecas que tengan algun distintivo de acuerdo a estos colores
+            para poder realizar una debida separacion de los desechos.</p>
+        </div>
+    </div>
+</div>
+
+<div class='contenedor-principal2'>
+    <h3>¿Que elementos alternativos puedes utilizar <br> para realizar tu separacion de basuras?</h3>
+    <button class='boton' onclick="mostrar2();">INFO</button>
+    <div id="img2">
+        <br>
+        <div class="texto"><p>Puedes usar las siguientes alternativas</p></div>
+        <div class="foto"><img src="{% static 'appPrincipal/img/cajas-c.jpg' %}" width="90%" height="26%"></div>
+        <div class="foto1"><img src="{% static 'appPrincipal/img/Trio.jpg' %}" width="90%" height="26%"></div>
+        <div >
+            <p style="color: white; font-size: 18;">Puedes usar bolsas donde separes los residos plasticos, las latas y los papeles. Tambien puedes usar una cajas
+                de carton para separar las botellas de vidrio de los demas residuos.
+            </p>
+        </div>
+        <div id="foto4"><img src="{% static 'appPrincipal/img/bk.jpg' %}" width="50%" height="26%" ></div>
+        <p style="color: white; font-size: 18;">Los desechos de comidas que ya no se pueden reciclar los puedes botar en una bolsa.</p>
+    </div>
+</div>
+
+</div>
+    <script>
+        var mostar = false;
+        var mostar1 = false;
+        function mostrar(){
+            if(mostar == false){
+                document.getElementById('img').style.display='block';
+                mostar = true;
+            }else{
+                document.getElementById('img').style.display='none';
+                mostar =  false;
+            }
+        }
+
+        function mostrar2(){
+            if(mostar1 == false){
+                document.getElementById('img2').style.display='block';
+                mostar1 = true;
+            }else{
+                document.getElementById('img2').style.display='none';
+                mostar1 =  false;
+            }
+        }
+    </script>
+{% endblock%}
