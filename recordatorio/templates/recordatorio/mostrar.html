@@ -1,0 +1,19 @@
+{% extends "appPrincipal/base.html" %}
+{% load static %}
+{% block content %}
+<p style="text-align: center; margin-top: 20px;">
+    <a class="btn btn-secondary" href="crear">Crear recordatorio</a>
+</p>
+    {% for recordatorio in recordatorios %}
+            <div class="Lista">
+                <h2>
+                    <span class="titulo">{{recordatorio.nombre}}</span>
+                    <br>
+                    <span class="contenido">{{recordatorio.contenido}}</span>
+                    <br>
+                    <span class="contenido">Cada {{recordatorio.diaSemana}} a las {{recordatorio.hora}}</span>               
+                    <br>
+                </h2> 
+            </div>
+    {% endfor %}
+{% endblock %}

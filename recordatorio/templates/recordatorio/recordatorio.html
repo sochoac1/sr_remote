@@ -1,0 +1,105 @@
+<!--Decimos a home que herede-->
+{% extends "appPrincipal/home.html" %}
+
+<!--Cargue todo lo que podamos tener en carpeta static, imagen del contenido-->
+{% load static %}
+
+<!--Abrimos bloque de contenido y cerramos cuando terminan contenidos propios de la pagina-->
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial;
+            background-color: #18A383; 
+            box-sizing: border-box;
+        }
+        form{
+            background-color: rgb(222, 240, 222);
+            opacity:  0.89;
+            border-radius: 3px;
+            color: #999;
+            font-size: 1em;
+            padding: 10px;
+            margin: 0 auto;
+            width: 300px;
+            margin-top: 20;
+            margin-bottom: 20;
+        }
+        input, textarea{
+            border:0;
+            outline: none;
+            width: 280;
+        }
+        .field{
+            border: solid 1px #ccc;
+            padding: 10px;
+            
+        }
+        .field:focus{
+            border-color:green;
+
+        }
+        .center-content{
+            text-align: center;
+            
+        }
+        .button{
+            background-color: green;
+            border: none;
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            color: white;
+            height: 40px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button:hover{
+            background-color: rgb(93, 214, 93);
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <p>Nombre recordatorio:</p>
+        <p>
+            <input type="text" class="field" name="nombre" placeholder= "" required id="id_nombre">
+        </p>
+        <p>Descripción del recordatorio:</p>
+        <p>
+            <textarea class="field" name="contenido" placeholder="" required id="id_contenido"></textarea>
+        </p>
+
+        <label for="id_diaSemana">Dia de la semana:</label>
+        <p>            
+            <select name="diaSemana" id="id_diaSemana">
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miercoles">Miercoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sabado">Sabado</option>
+                <option value="Domingo">Domingo</option>            
+            </select>
+        </p>
+        
+        <label for="id_hora">Hora:</label>
+        <p>
+            <input type="text" name="hora" required id="id_hora" placeholder=" ej: 00:00:00" class=field>
+        </p>
+        <p class="center-content">
+            <input type="submit" class="button" value="Crear">
+        </p>
+    </form>
+</body>
+</html>
+
+{% endblock %}
