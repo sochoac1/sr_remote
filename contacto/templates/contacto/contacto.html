@@ -1,0 +1,24 @@
+<!--Decimos a home que herede-->
+{% extends "appPrincipal/base.html" %}
+
+<!--Cargue todo lo que podamos tener en carpeta static, imagen del contenido-->
+{% load static %}
+
+<!--Abrimos bloque de contenido y cerramos cuando terminan contenidos propios de la pagina-->
+{% block content %}
+<!--Ponemos parametro para mensaje-->
+{% if "valido" in request.GET %}
+    <p style="color: snow;">Informacion enviada correctamente, gracias.</p>
+    
+
+{% endif %}
+<div class="contenedorFormulario">
+    <form action="" method="POST" style="text-align: center;">
+        {% csrf_token %}
+        <table style="color: white; margin: 20px auto;">{{miformulario.as_table}}</table>
+        <input type="submit" value="Enviar" style="width:150px;">
+    </form>
+</div>
+
+
+{% endblock %}
